@@ -1,15 +1,19 @@
-"use server"
+// src/app/api/items/route.ts
+
 import { NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export async function GET() {
-  const items = JSON.parse(localStorage.getItem('items') || '[]');
+  const items = await prisma.item.findMany();
   return NextResponse.json(items);
 }
 
 export async function POST(request: Request) {
-  const newItem = await request.json();
-  const items = JSON.parse(localStorage.getItem('items') || '[]');
-  items.push(newItem);
-  localStorage.setItem('items', JSON.stringify(items));
+  const { name, id } = await request.json();
+  const newItem = await prisma.item.create({
+    data: { name, id },
+  });
   return NextResponse.json(newItem, { status: 201 });
 }

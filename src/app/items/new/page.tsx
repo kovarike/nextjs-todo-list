@@ -1,9 +1,10 @@
 "use client"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from '../../style.module.css';
+import { Modal } from '@/components/modal';
 
-const NewItem = () => {
+
+export default function NewItem () {
   const [name, setName] = useState('');
   const router = useRouter();
 
@@ -22,23 +23,25 @@ const NewItem = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1>Create New Item</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-        className={styles.input}
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          placeholder="Item name"
-        />
-        <button type="submit" className={styles.button}>
-          Add
-        </button>
-      </form>
-    </div>
+    
+      <div className="max-w-[400px] p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4 flex flex-1 flex-col items-center mt-6">
+        <h1 className='mx-auto text-center mb-3 text-gray-500'>Criar nova tarefa</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+          className="mb-3 w-full p-[10px] rounded-md border-[1px] border-[#ccc] focus:outline-none focus:border-[#6e7f80]"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            placeholder="Criar nova tarefa"
+          />
+          <button type="submit" className="bg-button border-none text-white py-3 px-5 rounded-md cursor-pointer text-center mx-auto">
+            Adicionar
+          </button>
+        </form>
+      </div>
+    
   );
 };
 
-export default NewItem;
+

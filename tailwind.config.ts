@@ -20,6 +20,8 @@ const config: Config = {
       },
       backgroundImage: {
         'button': 'linear-gradient(135deg, #0796D3, #53C0F0)',
+        'delete': 'linear-gradient(135deg, #D30707, #F05353)',
+        'cancelar': 'linear-gradient(135deg, #E7EEFB, #E7EEFB)',
       },
     },
   },
