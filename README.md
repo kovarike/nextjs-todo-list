@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- primeiro intala o node js.
 
-## Getting Started
+- após o git clone, digite o comando npm i ou npm intall, para instala as dependecias do prjeto.
 
-First, run the development server:
+- após instala as dependecias, digite o comonado npm run dev, para inicia i projeto, no termina ir ter uma url    para acessa na navegador.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ -no tailwind.config.ts estão algumas configurações para ser aplicad ao css.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ - estou utilizando o tailwind css, no vs code, baixe a exteção do tailwind css.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ - no diretorio app/api/items/router.ts esta as rotas da aplicção, obs: (todo arquivo que ira utiliza o ssr deve de o "use server" antes de todo o codigo)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ - os arquivos do frotend estão em ./pages.tsx - items/new/page.tsx - e items/[id]/ page.tsx, esse são o arquivo do fornt-end. OBS: ( todo arquivo front-end deve ter u "use client" ante de todo o codigo.).
 
-## Learn More
+ - o arquivo style.module.css tem algus css que vc pode seguir.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ - o projeto esta utilizando typescript, lembre de quando nescessario declara as tipagem ou typo de e formado de dados. 

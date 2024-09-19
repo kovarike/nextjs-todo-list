@@ -12,6 +12,15 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif']
+      },
+      boxShadow:{
+        shadow: "0 4px 10px rgba(0, 0, 0, 0.1)"
+      },
+      backgroundImage: {
+        'button': 'linear-gradient(135deg, #0796D3, #53C0F0)',
+      },
     },
   },
   plugins: [],
