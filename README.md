@@ -12,6 +12,8 @@
 
  - os arquivos do frotend estão em ./pages.tsx - items/new/page.tsx - e items/[id]/ page.tsx, esse são o arquivo do fornt-end. OBS: ( todo arquivo front-end deve ter u "use client" ante de todo o codigo.).
 
+ - npx prisma migrate dev - npx prisma generate, para o banco de dados.
+
  - o arquivo style.module.css tem algus css que vc pode seguir.
 
  - o projeto esta utilizando typescript, lembre de quando nescessario declara as tipagem ou typo de e formado de dados. 

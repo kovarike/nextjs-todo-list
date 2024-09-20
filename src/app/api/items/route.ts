@@ -30,34 +30,37 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
+  const params = request.nextUrl.searchParams
+  const id  = params.get('id')
+  if(!id){return NextResponse.json({ error: "ID is required" }, { status: 400 });}
   try {
     const json = await request.json();
-    const { id, name } = itemsSchema.extend({ id: z.string() }).parse(json);
-
-    const updatedItems = await prisma.item.update({
-      where: { id: id },
-      data: {
-        name,
-        id
-      },
+    const {completed } = itemsSchema.parse(json);
+    
+    const updatedItem = await prisma.item.update({
+      where: { id },
+      data: { completed },
     });
 
-    return NextResponse.json(updatedItems);
+    return NextResponse.json(updatedItem);
   } catch (error) {
-    return NextResponse.json({ error: error }, { status: 400 });
+    return NextResponse.json({ error: error}, { status: 400 });
   }
 }
 
 export async function DELETE(request: NextRequest) {
-  const { id } = await request.json();
+  const params = request.nextUrl.searchParams
+  const id  = params.get('id')
+  
 
   try {
+    if(!id){return}
     await prisma.item.delete({
       where: { id },
     });
 
-    return NextResponse.json({ message: 'User deleted successfully' });
+    return NextResponse.json({ message: 'Item deleted successfully' });
   } catch (error) {
-    return NextResponse.json({ error: 'User not found' }, { status: 404 });
+    return NextResponse.json({ error: 'Item not found' }, { status: 404 });
   }
 }
