@@ -5,14 +5,22 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { v4 as uuid } from 'uuid';
 import axios from 'axios';
+import { QueryClient, useQuery } from '@tanstack/react-query';
+import { getItems } from '@/app/api/http/get-items';
+import { postItems } from '@/app/api/http/post-items';
 
 const taskSchema = z.object({
   name: z.string().min(1, "A tarefa não pode estar vazia"),
 });
 
 type DataSchema = z.infer<typeof taskSchema>;
+const queryClient = new QueryClient()
 
 export function Modal() {
+  // const { data  } = useQuery({
+  //   queryKey:['post-items'], queryFn: postItems, staleTime: 1000 * 60,   
+  // });
+  // if(!data){return}
   const { register, handleSubmit, reset, formState: { errors } } = useForm<DataSchema>({
     resolver: zodResolver(taskSchema),
   });
@@ -25,12 +33,12 @@ export function Modal() {
     };
 
     try {
-      const response = await axios.post('/api/items', newItem);
-      window.location.reload();
+      await axios.post('/api/items', newItem);
+       window.location.reload();
+      queryClient.invalidateQueries({queryKey: ["items"]});
+      
 
-      if (response.status < 200 || response.status >= 300) {
-        throw new Error('Erro ao criar item');
-      }
+      
 
       reset(); 
     } catch (error) {

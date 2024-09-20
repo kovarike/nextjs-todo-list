@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
-  const params = request.nextUrl.searchParams
+  const params = request.nextUrl.searchParams;
   const idParams  = params.get('id')
   if(!idParams){return NextResponse.json({ error: "ID is required" }, { status: 400 });}
   try {
@@ -49,7 +49,7 @@ export async function PUT(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  const params = request.nextUrl.searchParams
+  const params = request.nextUrl.searchParams;
   const id  = params.get('id')
   
 
