@@ -1,14 +1,11 @@
-"use client";
+
 import { HtmlHTMLAttributes } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { v4 as uuid } from 'uuid';
-
-interface ModalProps extends HtmlHTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode;
-}
+import axios from 'axios';
 
 const taskSchema = z.object({
   name: z.string().min(1, "A tarefa não pode estar vazia"),
@@ -21,29 +18,25 @@ export function Modal() {
     resolver: zodResolver(taskSchema),
   });
 
-  const onSubmit = async (data: DataSchema) => {
+  async function onSubmit( { name }: DataSchema){
     const newItem = {
-      name: data.name,
-      id: uuid(), // Gera um UUID aqui
+      name,
+      id: uuid(),
+      completed: false  
     };
 
     try {
-      const response = await fetch('/api/items', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newItem),
-      });
+      const response = await axios.post('/api/items', newItem);
+      window.location.reload();
 
-      if (!response.ok) {
+      if (response.status < 200 || response.status >= 300) {
         throw new Error('Erro ao criar item');
       }
 
-      reset(); // Limpa o formulário após sucesso
+      reset(); 
     } catch (error) {
       console.error(error);
-      // Aqui você pode mostrar uma mensagem de erro ao usuário, se necessário
+      
     }
   };
 
@@ -51,11 +44,11 @@ export function Modal() {
     <Dialog.Content>
       <Dialog.Title>Criar nova tarefa</Dialog.Title>
       <Dialog.Description>Criar nova tarefa</Dialog.Description>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black opacity-80 z-10">
-          <div  className="max-w-[400px] w-[400px] p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4 mt-10">
+      
+        <Dialog.Overlay className="fixed inset-0 bg-white opacity-95 flex flex-1 flex-col items-center justify-center ">
+          <div  className="max-w-[400px] w-[400px] p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4  ">
             <h1 className='text-center mb-3 text-gray-500'>Criar nova tarefa</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className='z-10'>
               <input
                 className={`text-black mb-3 w-full p-2 rounded-md border ${errors.name ? 'border-red-500' : 'border-[#ccc]'} focus:outline-none focus:border-[#6e7f80]`}
                 type="text"
@@ -74,8 +67,10 @@ export function Modal() {
               </div>
             </form>
           </div>
+
+
         </Dialog.Overlay>
-      </Dialog.Portal>
+      
     </Dialog.Content>
   );
 }
