@@ -34,10 +34,14 @@ export default function Home() {
     );
     setItems(updatedItems);
 
+    const newItem = {
+      name: items.find((item) => item.id === id)?.name,
+      id: items.find((item) => item.id === id)?.id,
+      completed: !items.find((item) => item.id === id)?.completed  
+    };
+
     try {
-      await axios.put(`/api/items?id=${id}`, {
-        completed: !items.find((item) => item.id === id)?.completed
-      });
+      await axios.put(`/api/items?id=${id}`, newItem);
     } catch (error) {
       console.error("Erro ao atualizar item", error);
     }

@@ -31,15 +31,15 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   const params = request.nextUrl.searchParams
-  const id  = params.get('id')
-  if(!id){return NextResponse.json({ error: "ID is required" }, { status: 400 });}
+  const idParams  = params.get('id')
+  if(!idParams){return NextResponse.json({ error: "ID is required" }, { status: 400 });}
   try {
     const json = await request.json();
-    const {completed } = itemsSchema.parse(json);
+    const {id, name, completed } = itemsSchema.parse(json);
     
     const updatedItem = await prisma.item.update({
-      where: { id },
-      data: { completed },
+      where: { id: idParams },
+      data: { id, name, completed },
     });
 
     return NextResponse.json(updatedItem);
@@ -53,8 +53,8 @@ export async function DELETE(request: NextRequest) {
   const id  = params.get('id')
   
 
+  if(!id){return NextResponse.json({ error: "ID is required" }, { status: 400 });}
   try {
-    if(!id){return}
     await prisma.item.delete({
       where: { id },
     });
