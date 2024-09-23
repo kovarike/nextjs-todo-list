@@ -28,7 +28,7 @@ export function HomePage() {
   };
 
   return (
-    <div className='flex flex-col items-center mx-auto h-screen p-5 sm:p-14 space-y-10' style={{ width: '100vw', maxWidth: '1440px', height: '100vh' }}>
+    <div className='flex flex-col items-center mx-auto h-screen p-5 sm:p-14 space-y-6' style={{ width: '100vw', maxWidth: '1440px', height: '100vh' }}>
       <Header />
 
       <Dialog.Root>

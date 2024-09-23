@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="bg-[#f5f5f5] text-zinc-950 antialiased overflow-hidden"
+        className="bg-[#f5f5f5] text-zinc-950 antialiased"
       >
      
 
