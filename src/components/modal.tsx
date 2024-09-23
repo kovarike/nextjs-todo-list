@@ -36,7 +36,7 @@ export function Modal() {
       
       <Dialog.Overlay className="fixed inset-0 bg-white opacity-95 flex flex-1 flex-col items-center justify-center">
         <div className="max-w-[450px] w-full p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4">
-          <h1 className='text-center mb-3 text-gray-500 text-lg'>Criar nova tarefa</h1>
+          <h1 className='text-center mb-3 text-black text-xl'>Criar nova tarefa</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               className={`text-black mb-3 w-full p-2 rounded-md border ${errors.name ? 'border-red-500' : 'border-[#ccc]'} focus:outline-none focus:border-[#6e7f80]`}
