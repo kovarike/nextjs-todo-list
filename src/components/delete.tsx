@@ -19,9 +19,9 @@ export function Delete({ id }: PropsDelete) {
       <Dialog.Title className="text-lg font-medium">Deletar tarefa</Dialog.Title>
       <Dialog.Description className="mb-4">Tem certeza que deseja deletar esta tarefa?</Dialog.Description>
 
-      <Dialog.Overlay className="fixed inset-0 bg-white opacity-95 flex items-center justify-center">
+      <Dialog.Overlay className="fixed inset-0 bg-[#E3F2FD] bg-opacity-95 flex items-center justify-center">
         <div className="max-w-[450px] w-full p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4">
-          <h1 className="text-center mb-3 text-black text-xl">Deletar tarefa</h1>
+          <h1 className="text-center mb-3 text-black text-xl font-medium">Deletar tarefa</h1>
           <h2 className="text-center mb-3 text-gray-500 text-base">
             Tem certeza que você deseja deletar essa tarefa?
           </h2>

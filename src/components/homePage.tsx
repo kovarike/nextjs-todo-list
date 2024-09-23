@@ -8,6 +8,7 @@ import { getItems } from '@/lib/http/get-items';
 import { putItems } from '@/lib/http/put-items';
 import { Header } from './header';
 
+
 export function HomePage() {
   const useClient = useQueryClient();
 
@@ -32,9 +33,9 @@ export function HomePage() {
       <Header />
 
       <Dialog.Root>
-        <main className="flex flex-col items-center gap-2 w-full">
-          <div className="w-full max-w-[450px] sm:max-w-[480px] px-3 py-2 mx-auto border-2 border-gray-500/50 bg-white rounded-xl space-y-4 flex flex-col justify-center items-center" style={{ height: 'calc(100vh - 250px)' }}>
-            <h1 className='text-center mb-3 text-gray-500 text-lg sm:text-base'>Suas tarefas de hoje</h1>
+        <main className="flex flex-col items-center w-full">
+          <div className="w-full max-w-[450px] sm:max-w-[480px] px-3 mx-auto border-2 border-gray-500/50 bg-white rounded-xl space-y-3 flex flex-col justify-center items-center" style={{ height: 'calc(100vh - 250px)' }}>
+            <h1 className='text-center text-slate-900 font-medium text-2xl sm:text-lg'>Suas tarefas de hoje</h1>
             <ul className='space-y-3 w-full overflow-y-scroll max-h-[450px] h-[450px]  mx-auto'>
               {data.map((item) => (
                 <div key={item.id} className='w-full'>
@@ -63,7 +64,7 @@ export function HomePage() {
                   )}
                 </div>
               ))}
-              {data.length <= 0 ? " ": (<h1 className='text-center mb-3 text-gray-500 text-lg sm:text-base'>Tarefas finalizadas</h1>) }
+              {!data.find((item) => item.completed === true)?.completed  ? " ": (<h1 className='text-center mb-3 text-slate-900 font-medium text-lg sm:text-base'>Tarefas finalizadas</h1>) }
               
 
               {data.map((item) => (

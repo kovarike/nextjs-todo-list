@@ -34,9 +34,9 @@ export function Modal() {
       <Dialog.Title className="text-lg font-medium">Criar nova tarefa</Dialog.Title>
       <Dialog.Description className="mb-4">Preencha o campo abaixo para adicionar uma nova tarefa.</Dialog.Description>
       
-      <Dialog.Overlay className="fixed inset-0 bg-white opacity-95 flex flex-1 flex-col items-center justify-center">
+      <Dialog.Overlay className="fixed inset-0 bg-[#E3F2FD] bg-opacity-95 flex flex-1 flex-col items-center justify-center">
         <div className="max-w-[450px] w-full p-5 mx-auto shadow-shadow bg-white rounded-xl space-y-4">
-          <h1 className='text-center mb-3 text-black text-xl'>Criar nova tarefa</h1>
+          <h1 className='text-center mb-3 text-black text-xl font-medium'>Criar nova tarefa</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               className={`text-black mb-3 w-full p-2 rounded-md border ${errors.name ? 'border-red-500' : 'border-[#ccc]'} focus:outline-none focus:border-[#6e7f80]`}

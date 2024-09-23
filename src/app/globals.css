@@ -1,40 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *{
-  /* Estilo para navegadores WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 2px; 
-  border-radius: 10px;
-  scrollbar-width: none;
-  display: none;/* Largura da barra de rolagem */
-}
-::-webkit-scrollbar {
-  display: none; /* Remove a barra de rolagem */
-}
+    font-family: 'Roboto', sans-serif;
+  ::-webkit-scrollbar {
+    width: 2px; 
+    border-radius: 10px;
+    
+    
+  }
+  ::-webkit-scrollbar {
+    
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Cor da track (fundo da barra) */
-  border-radius: 10px;
-  scrollbar-width: none;
-  display: none; /* Borda arredondada */
-}
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: #888; /* Cor do thumb (parte móvel) */
-  border-radius: 10px;
-  scrollbar-width: none;
-  display: none; /* Borda arredondada */
-   /* Cor ao redor do thumb */
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+    ; 
+    
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-  border-radius: 10px;
-  display: none;
-  scrollbar-width: none; /* Cor do thumb ao passar o mouse */
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    border-radius: 10px;
+    
+  }
+ 
+  font-family: 'Roboto', sans-serif;
+ 
 
 
 
