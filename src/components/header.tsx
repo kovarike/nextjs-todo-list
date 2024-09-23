@@ -23,11 +23,11 @@ export function Header() {
         />
       </div>
 
-      <h1 className="text-[#000] font-roboto text-2xl font-medium sm:text-3xl text-center sm:text-left">
+      <h1 className="text-[#000] font-roboto text-3xl font-medium sm:text-2xl text-center sm:text-left">
         Bem-vinda de volta, Danilo!
       </h1>
 
-      <p className="text-[rgba(0, 0, 0, 0.54)] font-roboto text-lg font-normal sm:text-lg text-center sm:text-left">
+      <p className="text-gray-500 font-roboto text-xl font-normal sm:text-lg text-center sm:text-left">
         {formattedDate}
       </p>
     </header>
