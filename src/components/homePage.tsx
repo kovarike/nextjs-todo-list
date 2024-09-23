@@ -33,7 +33,7 @@ export function HomePage() {
 
       <Dialog.Root>
         <main className="flex flex-col items-center justify-center w-full">
-          <div className="w-full max-w-[450px] sm:max-w-[480px] px-5 mx-auto border-2 border-gray-500/50 bg-white rounded-xl space-y-4 flex flex-col justify-center items-center" style={{ height: 'calc(100vh - 400px)' }}>
+          <div className="w-full max-w-[450px] sm:max-w-[480px] px-5 py-2 mx-auto border-2 border-gray-500/50 bg-white rounded-xl space-y-4 flex flex-col justify-center items-center" style={{ height: 'calc(100vh - 300px)' }}>
             <h1 className='text-center mb-3 text-gray-500 text-lg sm:text-base'>Suas tarefas de hoje</h1>
             <ul className='space-y-3 w-full overflow-y-scroll max-h-[450px] h-[450px]  mx-auto'>
               {data.map((item) => (
