@@ -1,8 +1,10 @@
 -- CreateTable
 CREATE TABLE "Item" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "completed" BOOLEAN NOT NULL DEFAULT false
+    "completed" BOOLEAN NOT NULL DEFAULT false,
+
+    CONSTRAINT "Item_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
