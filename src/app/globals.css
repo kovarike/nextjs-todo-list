@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{
+  /* Estilo para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 2px; 
+  border-radius: 10px;
+  scrollbar-width: none;
+  display: none;/* Largura da barra de rolagem */
+}
+::-webkit-scrollbar {
+  display: none; /* Remove a barra de rolagem */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor da track (fundo da barra) */
+  border-radius: 10px;
+  scrollbar-width: none;
+  display: none; /* Borda arredondada */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor do thumb (parte móvel) */
+  border-radius: 10px;
+  scrollbar-width: none;
+  display: none; /* Borda arredondada */
+   /* Cor ao redor do thumb */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+  border-radius: 10px;
+  display: none;
+  scrollbar-width: none; /* Cor do thumb ao passar o mouse */
+}
+
+
+
+
 }
